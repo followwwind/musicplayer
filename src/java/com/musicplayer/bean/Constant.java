@@ -22,8 +22,8 @@ public class Constant {
 	public static BufferedImage footer = null;
 	public static BufferedImage app = null;
 	public static Dimension   screensize   =   Toolkit.getDefaultToolkit().getScreenSize();
-	public static final int WIDTH = screensize.width - 340;
-	public static final int HEIGHT = screensize.height - 110;
+	public static final int WIDTH = screensize.width - screensize.width/3;
+	public static final int HEIGHT = screensize.height - screensize.height/5;
 	public static File music = null;
 	public static BufferedImage player = null;
 	public static BufferedImage pre = null;

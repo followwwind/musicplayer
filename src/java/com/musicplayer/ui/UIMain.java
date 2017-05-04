@@ -27,14 +27,14 @@ public class UIMain extends JFrame{
 		layeredPane=new JLayeredPane();
 		mainPanel = new MainPanel(this);
 		bgPanel = new BgPanel(Constant.background, Constant.WIDTH, Constant.HEIGHT);
-		mainPanel.setBounds(0, 0, Constant.WIDTH - 17, Constant.HEIGHT - 40);
+		mainPanel.setBounds(0, 0, Constant.WIDTH, Constant.HEIGHT);
 		bgPanel.setBounds(0, 0, Constant.WIDTH, Constant.HEIGHT);
 		layeredPane.add(bgPanel, new Integer(1));
 		layeredPane.add(mainPanel, new Integer(2));
 		//this.setLayeredPane(layeredPane);
 		this.setIconImage(Constant.app);
 		this.getContentPane().add(layeredPane);
-		this.setSize(Constant.WIDTH, Constant.HEIGHT);
+		this.setSize(Constant.WIDTH + Constant.WIDTH/55, Constant.HEIGHT + Constant.HEIGHT/15);
 		this.setLocationRelativeTo(null);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setVisible(true);

@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.Map;
 
 import org.jaudiotagger.audio.exceptions.InvalidAudioFrameException;
@@ -12,6 +13,7 @@ import org.jaudiotagger.audio.mp3.MP3AudioHeader;
 import org.jaudiotagger.audio.mp3.MP3File;
 import org.jaudiotagger.tag.TagException;
 import org.jaudiotagger.tag.id3.AbstractID3v2Tag;
+import org.jaudiotagger.tag.id3.AbstractTagFrameBody;
 import org.jaudiotagger.tag.id3.ID3v23Frame;
 
 import com.musicplayer.bean.Song;
@@ -40,16 +42,33 @@ public class Mp3Util {
 			
 			MP3File mp3File = new MP3File(file);
 			AbstractID3v2Tag id3v2tag=  mp3File.getID3v2Tag();
-			ID3v23Frame tit2 = (ID3v23Frame)id3v2tag.frameMap.get("TIT2");
-			ID3v23Frame tpe1 = (ID3v23Frame)id3v2tag.frameMap.get("TPE1");
-			ID3v23Frame talb = (ID3v23Frame)id3v2tag.frameMap.get("TALB");
-			//System.out.println(tit2.getBody().getObjectValue("Text"));
-			//System.out.println(tit2.getBody().getLongDescription());
-			String songName = tit2.getBody().getObjectValue("Text").toString();// 歌曲名称
-			String artist = tpe1.getBody().getObjectValue("Text").toString(); // 歌手名字
-			String album = talb.getBody().getObjectValue("Text").toString(); // 专辑名称
-			//System.out.println(songName + "-" + artist + "-" + album);
-			//System.out.println("All Info："+mp3File.displayStructureAsPlainText());
+			HashMap frameMap = id3v2tag != null ? id3v2tag.frameMap : null;
+			String songName = "";
+			String artist = "";
+			String album = "";
+			if(frameMap != null){
+				ID3v23Frame tit2 = (ID3v23Frame)frameMap.get("TIT2");
+				ID3v23Frame tpe1 = (ID3v23Frame)frameMap.get("TPE1");
+				ID3v23Frame talb = (ID3v23Frame)frameMap.get("TALB");
+				//System.out.println(tit2.getBody().getObjectValue("Text"));
+				//System.out.println(tit2.getBody().getLongDescription());
+				AbstractTagFrameBody tit2Body = tit2.getBody();
+				AbstractTagFrameBody tpe1Body = tpe1.getBody();
+				AbstractTagFrameBody talbBody = talb.getBody();
+				Object tit2Obj = tit2Body != null ? tit2Body.getObjectValue("Text") : null;
+				Object tpe1Obj = tpe1Body != null ? tpe1Body.getObjectValue("Text") : null;
+				Object talbObj = talbBody != null ? talbBody.getObjectValue("Text") : null;
+				songName = tit2Obj != null ? tit2Obj.toString() : "";// 歌曲名称
+				artist = tpe1Obj != null ? tpe1Obj.toString() : ""; // 歌手名字
+				album = talbObj != null ? talbObj.toString() : ""; // 专辑名称
+				//System.out.println(songName + "-" + artist + "-" + album);
+				//System.out.println("All Info："+mp3File.displayStructureAsPlainText());
+			}else{
+				songName = file.getName().replace(".mp3", "");
+				artist = "未知歌手";
+				album = "未知专辑";
+			}
+			
 			song = new Song();
 			song.setTitle(songName);
 			song.setArtist(artist);

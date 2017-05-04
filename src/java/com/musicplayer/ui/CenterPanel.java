@@ -67,7 +67,7 @@ public class CenterPanel extends JPanel {
 		this.southPanel = southPanel;
 		menu = new JPanel();
 		content = new JScrollPane();
-		menu.setPreferredSize(new Dimension(200, this.getHeight()));
+		menu.setPreferredSize(new Dimension(Constant.WIDTH/4, this.getHeight()));
 		menu.setBorder(BorderFactory.createMatteBorder(0, 0, 0, 1, Color.GRAY));
 		menu.setLayout(new FlowLayout(FlowLayout.LEFT, 3, 5));
 

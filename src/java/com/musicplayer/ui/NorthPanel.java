@@ -24,7 +24,7 @@ public class NorthPanel extends JPanel{
 		
 		add(title);
 		setOpaque(false);
-		setPreferredSize(new Dimension(this.getWidth(), 50));
+		setPreferredSize(new Dimension(this.getWidth(), Constant.HEIGHT/12));
 		setBorder(BorderFactory.createMatteBorder(0, 0, 2, 0, new Color(168,31,31)));
 	}
 	

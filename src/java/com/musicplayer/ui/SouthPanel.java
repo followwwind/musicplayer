@@ -94,20 +94,21 @@ public class SouthPanel extends JPanel {
 		player.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				if (status) {
-					status = false;
-					player.setIcon(new ImageIcon(Constant.player2));
-					musicplayer.pauseplay();
-					timer.stop();
-				} else {
-					status = true;
-					player.setIcon(new ImageIcon(Constant.pause2));
-					musicplayer.startplay();
-					if (!musicplayer.isStart() && musicplayer.existFile()) {
-						musicplayer.start();
+				if(musicplayer != null){
+					if (status) {
+						status = false;
+						player.setIcon(new ImageIcon(Constant.player2));
+						musicplayer.pauseplay();
+						timer.stop();
+					} else {
+						status = true;
+						player.setIcon(new ImageIcon(Constant.pause2));
+						musicplayer.startplay();
+						if (!musicplayer.isStart() && musicplayer.existFile()) {
+							musicplayer.start();
+						}
+						timer.start();
 					}
-
-					timer.start();
 				}
 			}
 
