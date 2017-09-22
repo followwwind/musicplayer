@@ -1,0 +1,62 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.wind</groupId>
+  <artifactId>musicplayer</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <packaging>jar</packaging>
+
+  <name>musicplayer</name>
+  <url>http://maven.apache.org</url>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+
+  <dependencies>
+    <!-- https://mvnrepository.com/artifact/org/jaudiotagger -->
+    <dependency>
+      <groupId>org</groupId>
+      <artifactId>jaudiotagger</artifactId>
+      <version>2.0.3</version>
+    </dependency>
+
+    <!-- https://mvnrepository.com/artifact/javazoom/jlayer -->
+    <dependency>
+      <groupId>javazoom</groupId>
+      <artifactId>jlayer</artifactId>
+      <version>1.0.1</version>
+    </dependency>
+
+    <!-- https://mvnrepository.com/artifact/dom4j/dom4j -->
+    <dependency>
+      <groupId>dom4j</groupId>
+      <artifactId>dom4j</artifactId>
+      <version>1.6.1</version>
+    </dependency>
+
+    <!-- https://mvnrepository.com/artifact/batik/batik-util -->
+    <dependency>
+      <groupId>batik</groupId>
+      <artifactId>batik-util</artifactId>
+      <version>1.6</version>
+    </dependency>
+
+    <!-- https://mvnrepository.com/artifact/batik/batik-awt-util -->
+    <dependency>
+      <groupId>batik</groupId>
+      <artifactId>batik-awt-util</artifactId>
+      <version>1.6</version>
+    </dependency>
+
+    <!-- https://mvnrepository.com/artifact/batik/batik-transcoder -->
+    <dependency>
+      <groupId>batik</groupId>
+      <artifactId>batik-transcoder</artifactId>
+      <version>1.6</version>
+    </dependency>
+
+
+  </dependencies>
+</project>
