@@ -57,6 +57,12 @@
       <version>1.6</version>
     </dependency>
 
+    <!-- https://mvnrepository.com/artifact/com.intellij/forms_rt -->
+    <dependency>
+      <groupId>com.intellij</groupId>
+      <artifactId>forms_rt</artifactId>
+      <version>7.0.3</version>
+    </dependency>
 
   </dependencies>
 </project>

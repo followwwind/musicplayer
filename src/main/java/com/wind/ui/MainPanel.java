@@ -1,10 +1,11 @@
 package com.wind.ui;
 
-import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.Graphics;
+import com.wind.ui.component.CenterPanel;
+import com.wind.ui.component.NorthPanel;
+import com.wind.ui.component.SouthPanel;
 
-import javax.swing.BorderFactory;
+import java.awt.BorderLayout;
+
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
@@ -18,21 +19,19 @@ public class MainPanel extends JPanel{
 	private NorthPanel northPanel;
 	private CenterPanel centerPanel;
 	private SouthPanel southPanel;
-	private JFrame frame;
+
 	public void initComponent(){
+
 		setLayout(new BorderLayout());
 		southPanel = new SouthPanel();
 		northPanel = new NorthPanel();
-		centerPanel = new CenterPanel(frame, southPanel);
+		centerPanel = new CenterPanel(southPanel);
 		add(northPanel, BorderLayout.NORTH);
 		add(centerPanel, BorderLayout.CENTER);
 		add(southPanel, BorderLayout.SOUTH);
-		//setBorder(BorderFactory.createLineBorder(Color.RED));
-		setOpaque(false);
 	}
 	
 	public MainPanel(JFrame frame) {
-		this.frame = frame;
 		initComponent();
 	}
 }

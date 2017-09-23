@@ -48,8 +48,8 @@ public class ImageUtil {
         //ImageIO.write(distin, "png", new File("D:\\333.png"))
         inputStream.close();
         return distin;
-    }   
-    
+    }
+
   
     public static void main(String[] args) throws Exception {   
         File file = new File("img/collection.png");   
